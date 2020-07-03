@@ -1,0 +1,14 @@
+<% content_for :header_links do %>
+  <a class="add" href="/budgets/new">New Budget</a>
+<% end %>
+
+<ul>
+  <% @budgets.each do |name, expense| %>
+    <a href="#">
+      <li>
+        <h3><%= name %></h3>
+        <p class="">Remaining: $<%= available(expense) %></p>
+      </li>
+    </a>
+  <% end %>
+</ul>
