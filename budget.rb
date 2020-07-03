@@ -13,5 +13,5 @@ before do
 end
 
 get "/" do
-  "Hello World"
+  redirect "/budget"
 end
