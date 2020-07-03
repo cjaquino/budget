@@ -62,3 +62,8 @@ get "/budgets" do
   @budgets = session[:budgets]
   erb :overview, layout: :layout
 end
+
+# Renders a new budget form
+get "/budgets/new" do
+  erb :new_budget, layout: :layout
+end
