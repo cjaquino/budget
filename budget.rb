@@ -9,42 +9,42 @@ configure do
 end
 
 before do
-  # session[:budgets] ||= {}
-  session[:budgets] = { Vacation: [
-                          {
-                            name: 'breakfast',
-                            cost: 15,
-                            category: 'food'
-                          },
-                          {
-                            name: 'lunch',
-                            cost: 20,
-                            category: 'food'
-                          },
-                          {
-                            name: 'dinner',
-                            cost: 50,
-                            category: 'food'
-                          }
-                        ],
-                        Monthly: [
-                          {
-                            name: 'breakfast',
-                            cost: 15,
-                            category: 'food'
-                          },
-                          {
-                            name: 'lunch',
-                            cost: 20,
-                            category: 'food'
-                          },
-                          {
-                            name: 'dinner',
-                            cost: 50,
-                            category: 'food'
-                          }
-                        ]
-                       }
+  session[:budgets] ||= {}
+  # session[:budgets] = { Vacation: [
+  #                         {
+  #                           name: 'breakfast',
+  #                           cost: 15,
+  #                           category: 'food'
+  #                         },
+  #                         {
+  #                           name: 'lunch',
+  #                           cost: 20,
+  #                           category: 'food'
+  #                         },
+  #                         {
+  #                           name: 'dinner',
+  #                           cost: 50,
+  #                           category: 'food'
+  #                         }
+  #                       ],
+  #                       Monthly: [
+  #                         {
+  #                           name: 'breakfast',
+  #                           cost: 15,
+  #                           category: 'food'
+  #                         },
+  #                         {
+  #                           name: 'lunch',
+  #                           cost: 20,
+  #                           category: 'food'
+  #                         },
+  #                         {
+  #                           name: 'dinner',
+  #                           cost: 50,
+  #                           category: 'food'
+  #                         }
+  #                       ]
+  #                      }
 end
 
 helpers do
@@ -66,4 +66,9 @@ end
 # Renders a new budget form
 get "/budgets/new" do
   erb :new_budget, layout: :layout
+end
+
+post "/budgets/new" do
+  session[:budgets][params[:budget_name].to_sym] = []
+  redirect "/budgets"
 end
