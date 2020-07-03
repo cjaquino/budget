@@ -4,7 +4,7 @@
 
 <ul>
   <% @budgets.each do |name, expense| %>
-    <a href="">
+    <a href="/budgets/<%= name %>">
       <li>
         <h3><%= name %></h3>
         <p class="">Remaining: $<%= available(expense) %></p>

@@ -1,0 +1,15 @@
+<ul>
+  <% @expenses.each do |expense| %>
+    <a href="/budgets/<%= @budget_name %>/actual_cost/<%= expense[:name] %>">
+      <li>
+        <p><%= expense[:name] %>($<%= expense[:cost] %>)</p>
+        <% if expense[:actual_cost] %>
+          <p>Actual cost: <%= expense[:actual_cost] %></p>
+        <% else %>
+          <p><em>Click to enter actual cost</em></p>
+        <% end %>
+      </li>
+
+    </a>
+  <% end %>
+</ul>

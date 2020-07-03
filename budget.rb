@@ -68,7 +68,20 @@ get "/budgets/new" do
   erb :new_budget, layout: :layout
 end
 
+# Creates a new budget
 post "/budgets/new" do
-  session[:budgets][params[:budget_name].to_sym] = []
+  session[:budgets][params[:budget_name]] = [{
+                            name: 'Dinner',
+                            cost: 50,
+                            category: 'food'
+                          }]
   redirect "/budgets"
+end
+
+# Display expenses in a budget
+get "/budgets/:budget_name" do
+  budgets = session[:budgets]
+  @budget_name = params[:budget_name]
+  @expenses = @budgets[budget_name] || []
+  erb :budget, layout: :layout
 end
