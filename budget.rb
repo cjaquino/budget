@@ -82,6 +82,6 @@ end
 get "/budgets/:budget_name" do
   budgets = session[:budgets]
   @budget_name = params[:budget_name]
-  @expenses = @budgets[budget_name] || []
+  @expenses = budgets[@budget_name] || []
   erb :budget, layout: :layout
 end
