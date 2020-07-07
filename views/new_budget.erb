@@ -1,5 +1,16 @@
 <form action="/budgets/new" method="post">
+  <div class="budget_category">
+    <label for="budget_category">Category</label>
+    <select name="budget_category">
+      <option value="bills">Bills</option>
+      <option value="living">Living</option>
+      <option value="pet">Pet</option>
+      <option value="misc">Miscellaneous</option>
+    </select>
+  </div>
+  <div class="budget_name">
     <label for="budget_name">Name</label>
     <input type="text" name="budget_name" value="">
-    <button type="submit" name="add_budget">Create</button>
+    <button type="submit" name="add_budget_name">Create</button>
+  </div>
 </form>
