@@ -48,7 +48,7 @@ before do
 end
 
 helpers do
-  def available(expenses)
+  def remaining_budget(expenses)
     expenses.map { |expense| expense[:cost] }.sum
   end
 end
@@ -70,10 +70,11 @@ end
 
 # Creates a new budget
 post "/budgets/new" do
+  category = params[:budget_category]
   session[:budgets][params[:budget_name]] = [{
                             name: 'Dinner',
                             cost: 50,
-                            category: 'food'
+                            category: category
                           }]
   redirect "/budgets"
 end

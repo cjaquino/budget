@@ -7,7 +7,8 @@
     <a href="/budgets/<%= name %>">
       <li>
         <h3><%= name %></h3>
-        <p class="">Remaining: $<%= available(expense) %></p>
+        <p class="">Remaining: $<%= remaining_budget(expense) %></p>
+        <p class="">Category: $<%= expense[0][:category] %></p>
       </li>
     </a>
   <% end %>
